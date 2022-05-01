@@ -19,15 +19,14 @@ public class ResetPasswordStepDefs {
 
         //first go to login page
         Driver.get().get(ConfigurationReader.get("url"));
-        //then click Forgot password? page
-        loginPage.forgotPasswordLink.click();
-        //wait reset-password page loads
-        BrowserUtils.urlContains("forgot-password",10);
+        //then click Forgot password page
+        loginPage.navigateToForgotPasswordPage();
     }
 
     @When("user enters {string} for email input box")
     public void user_enters_for_email_input_box(String email) {
         ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
+
         resetPasswordPage.inputBox.sendKeys(email);
     }
 

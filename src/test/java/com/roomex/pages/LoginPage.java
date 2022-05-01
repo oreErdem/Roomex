@@ -19,4 +19,10 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//a[@href = '/forgot-password']")
     public WebElement forgotPasswordLink;
 
+    public void navigateToForgotPasswordPage(){
+        forgotPasswordLink.click();
+        //wait reset-password page loads
+        BrowserUtils.urlContains("forgot-password",10);
+    }
+
 }

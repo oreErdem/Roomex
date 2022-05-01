@@ -17,25 +17,24 @@ public abstract class BasePage {
 
     public boolean isMsgDisplayed(WebElement element){
 
-
-        /*
+        //first we check if error message WebElement is not null
+        //if no WebElement returns from Expected Conditions method
+        //force the assertion fails by returning false
         try {
             BrowserUtils.waitForVisibility(element,5);
         }catch (TimeoutException e){
             return false;
         }
 
-         */
 
 
-        //check if it's displayed
+        //check if error WebElement is displayed
         if(element.isDisplayed()){
             //and has content
             if(!element.getAttribute("textContent").isEmpty()){
                 return true;
             }
         }
-
         return false;
     }
 }
